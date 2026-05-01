@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding Of Rachmah & Wisnu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#B8860B', // Emas Gelap
+                        soft: '#FFF8F0', // Krem Lembut
+                        dark: '#333333',
+                    },
+                    fontFamily: {
+                        'script': ['"Great Vibes"', 'cursive'],
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'sans': ['"Poppins"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* --- ANIMASI TULISAN & BINGKAI MUNCUL --- */
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInFrame {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-text {
+            opacity: 0;
+            animation: fadeInText 1.5s ease-out forwards;
+        }
+        .animate-frame {
+            opacity: 0;
+            animation: fadeInFrame 2s ease-out forwards;
+        }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1.5s; }
+        .delay-3 { animation-delay: 2.5s; }
+        .delay-4 { animation-delay: 3.5s; }
+        .delay-5 { animation-delay: 4.5s; }
+        .delay-6 { animation-delay: 5.5s; }
+
+        /* Garis Pemisah */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .divider-line {
+            width: 80px;
+            height: 1px;
+            background-color: #B8860B;
+        }
+        .divider-icon {
+            color: #B8860B;
+            font-size: 20px;
+        }
+
+        /* --- BINGKAI BUNGA DI KIRI & KANAN --- */
+        .frame-floral {
+            position: fixed;
+            top: 0;
+            width: 220px;
+            height: 100%;
+            background-size: contain;
+            background-repeat: repeat-y; /* Biar gambarnya nyambung ke bawah */
+            background-position: top center;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .frame-left {
+            left: 0;
+            /* Link gambar bunga memanjang */
+            background-image: url('https://1drv.ms/f/c/e821daac938c56e4/IgBpWNJsWMxzToWdcOxRm6kmAQh_0lBlZ-iEUqrYjy7OISc?e=x5UOS3');
+        }
+        .frame-right {
+            right: 0;
+            background-image: url('https://i.imgur.com/5kYbXQH.png');
+            transform: scaleX(-1);
+        }
+
+        /* Background gradasi lembut */
+        body {
+            background: linear-gradient(to bottom, #FFF8F0, #F9F3E5);
+        }
+    </style>
+</head>
+<body class="font-sans text-dark">
+
+    <!-- BINGKAI BUNGA DENGAN ANIMASI -->
+    <div class="frame-floral frame-left animate-frame delay-2"></div>
+    <div class="frame-floral frame-right animate-frame delay-2"></div>
+
+    <!-- HALAMAN DEPAN -->
+    <section id="cover" class="min-h-screen flex flex-col items-center justify-center relative z-10">
+        <div class="text-center px-6">
+            <p class="tracking-[0.3em] text-sm mb-4 text-dark/60 animate-text delay-1">THE WEDDING OF</p>
+            <h1 class="font-script text-[clamp(3rem,10vw,5rem)] text-primary mb-4 animate-text delay-2">Rachmah & Wisnu</h1>
+            
+            <div class="divider animate-text delay-3">
+                <div class="divider-line"></div>
+                <i class="fa fa-pagelines divider-icon"></i>
+                <div class="divider-line"></div>
+            </div>
+
+            <p class="text-lg mb-8 font-light text-dark/60 animate-text delay-3">Sabtu, 20 Mei 2026</p>
+            
+            <button onclick="bukaUndangan()" class="bg-primary text-white hover:bg-opacity-90 px-8 py-3 rounded-full shadow-md animate-text delay-4">
+                Buka Undangan <i class="fa fa-arrow-down ml-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ISI UNDANGAN -->
+    <div id="content" class="hidden relative z-10">
+        
+        <!-- QUOTE -->
+        <section class="py-16 px-6 bg-white/50">
+            <div class="max-w-2xl mx-auto text-center animate-text delay-1">
+                <p class="italic text-gray-600 mb-4">"Dan diantara tanda-tanda kekuasaanNya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikanNya diantaramu rasa kasih dan sayang."</p>
+                <p class="text-sm text-gray-400">(Qs. Ar. Rum (30) : 21)</p>
+            </div>
+        </section>
+
+        <!-- MEMPELAI -->
+        <section class="py-16 px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-script text-5xl text-center text-primary mb-12 animate-text delay-2">Mempelai</h2>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                    <div class="text-center animate-text delay-3">
+                        <h3 class="font-script text-4xl text-primary">Rachmah Fani Maulidia</h3>
+                        <p class="text-sm text-gray-500 mt-2">Putri dari Bapak & Ibu</p>
+                    </div>
+                    <div class="text-5xl font-script text-primary/30 animate-text delay-4">&</div>
+                    <div class="text-center animate-text delay-3">
+                        <h3 class="font-script text-4xl text-primary">Wisnu Ari</h3>
+                        <p class="text-sm text-gray-500 mt-2">Putra dari Bapak & Ibu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DATA ACARA -->
+        <section class="py-16 px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-script text-5xl text-center text-primary mb-12 animate-text delay-4">Data Acara</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-2xl text-center shadow border border-primary/20 animate-text delay-5">
+                        <h3 class="font-serif text-2xl text-primary mb-2">Akad Nikah</h3>
+                        <div class="divider">
+                            <div class="divider-line"></div>
+                            <i class="fa fa-pagelines divider-icon"></i>
+                            <div class="divider-line"></div>
+                        </div>
+                        <p class="text-lg font-bold mb-2">Sabtu, 20 Mei 2026</p>
+                        <p class="mb-1"><i class="fa fa-clock-o mr-2 text-primary"></i> 08:00 - 10:00 WIB</p>
+                        <p class="mb-4"><i class="fa fa-map-marker mr-2 text-primary"></i> Kediaman Mempelai Wanita</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl text-center shadow border border-primary/20 animate-text delay-5">
+                        <h3 class="font-serif text-2xl text-primary mb-2">Resepsi</h3>
+                        <div class="divider">
+                            <div class="divider-line"></div>
+                            <i class="fa fa-pagelines divider-icon"></i>
+                            <div class="divider-line"></div>
+                        </div>
+                        <p class="text-lg font-bold mb-2">Sabtu, 20 Mei 2026</p>
+                        <p class="mb-1"><i class="fa fa-clock-o mr-2 text-primary"></i> 11:00 - Selesai WIB</p>
+                        <p class="mb-4"><i class="fa fa-map-marker mr-2 text-primary"></i> Gedung Pernikahan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HADIAH -->
+        <section class="py-16 px-6 bg-white/50">
+            <div class="max-w-2xl mx-auto text-center animate-text delay-5">
+                <h2 class="font-script text-5xl text-center text-primary mb-4">Kirim Hadiah</h2>
+                <p class="text-gray-500 mb-8">Doa restu Anda merupakan karunia yang sangat berarti bagi kami.</p>
+
+                <div class="grid md:grid-cols-2 gap-4 text-left animate-text delay-6">
+                    <div class="bg-white p-4 rounded-lg flex items-center gap-4 shadow-sm">
+                        <i class="fa fa-bank text-3xl text-primary"></i>
+                        <div>
+                            <p class="font-semibold">Bank Mandiri</p>
+                            <p class="text-sm">1234 5678 9012 3456</p>
+                            <p class="text-xs text-gray-500">a.n. Rachmah Fani Maulidia</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg flex items-center gap-4 shadow-sm">
+                        <i class="fa fa-money text-3xl text-primary"></i>
+                        <div>
+                            <p class="font-semibold">BCA</p>
+                            <p class="text-sm">9876 5432 10</p>
+                            <p class="text-xs text-gray-500">a.n. Wisnu Ari</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PENUTUP -->
+        <section class="py-16 px-6 text-center animate-text delay-6">
+            <h2 class="font-script text-4xl text-primary mb-6">Terima Kasih</h2>
+            <p class="max-w-xl mx-auto text-dark/70 mb-10">Merupakan suatu kehormatan dan kebahagiaan bagi kami.</p>
+            <p class="font-script text-4xl text-primary/80">Rachmah & Wisnu</p>
+        </section>
+
+        <footer class="py-6 text-center text-xs text-dark/50">
+            <p>Made with <i class="fa fa-heart text-primary"></i></p>
+        </footer>
+
+        <button id="musicBtn" onclick="toggleMusic()" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg z-50">
+            <i class="fa fa-music"></i>
+        </button>
+    </div>
+
+    <script>
+        function bukaUndangan() {
+            document.getElementById('cover').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMusic() {
+            const btn = document.getElementById('musicBtn');
+            btn.innerHTML = btn.innerHTML.includes('fa-music') ? '<i class="fa fa-pause"></i>' : '<i class="fa fa-music"></i>';
+        }
+    </script>
+</body>
+</html>
